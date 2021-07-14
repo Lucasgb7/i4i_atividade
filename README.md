@@ -1,9 +1,11 @@
-I4I - Intelligence for Innovation (Blumenau) 
+# Requisitos
 
 Solicitamos o desenvolvimento de um sistema de cadastro de usuário com login de acesso e conexão com banco de dados, 
 esse sistema poderá ser desenvolvido na linguagem de seu conhecimento.
 Lembrando que esse cadastro de usuário deverá ser no modelo CRUD (https://pt.wikipedia.org/wiki/CRUD).
 
-A atividade poderá ser enviada ao e-mail: maria@i4i.com.br no título do e-mail colocar seu NOME + atividade.
+# Ferramentas utilizadas
 
-Prazo para envio: 20 de julho de 2021
+- NodeJS
+- Visual Studio Code
+- MySQL
