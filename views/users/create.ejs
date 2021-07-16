@@ -1,0 +1,165 @@
+<!doctype html>
+<html lang="pt-br">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <meta name="author" content="Mark Otto, Jacob Thornton, and Bootstrap contributors">
+    <meta name="generator" content="Hugo 0.84.0">
+    <title>I4I - Cadastro</title>
+
+    <link rel="canonical" href="https://getbootstrap.com/docs/5.0/examples/checkout/">
+
+    <!-- Bootstrap core CSS -->
+    <link href="/css/bootstrap.min.css" rel="stylesheet">
+
+    <style>
+      .bd-placeholder-img {
+        font-size: 1.125rem;
+        text-anchor: middle;
+        -webkit-user-select: none;
+        -moz-user-select: none;
+        user-select: none;
+      }
+
+      @media (min-width: 768px) {
+        .bd-placeholder-img-lg {
+          font-size: 3.5rem;
+        }
+      }
+    </style>
+    <!-- Custom styles for this template -->
+    <link href="form-validation.css" rel="stylesheet">
+  </head>
+
+  <body class="d-flex flex-column h-100 bg-dark">
+    <header>
+      <!-- Fixed navbar -->
+      <nav class="navbar navbar-expand-md navbar-dark fixed-top bg-secondary">
+        <div class="container-fluid">
+          <a class="navbar-brand" href="/users">
+              <img src="/img/i4i_logo.png" alt="Logo da Empresa I4I" height="40">
+          </a>
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+          </button>
+          <div class="collapse navbar-collapse" id="navbarCollapse">
+            <ul class="navbar-nav me-auto mb-2 mb-md-0">
+              <li class="nav-item">
+                <a class="nav-link" href="/logout">Logout</a>
+              </li>
+            </ul>
+            <form class="d-flex">
+              <input class="form-control me-2" type="search" placeholder="Pesquisar" aria-label="Search">
+              <button class="btn btn-outline-info" type="submit">Pesquisar</button>
+            </form>
+          </div>
+        </div>
+      </nav>
+    </header>
+
+    <div class="container">
+      <hr class="my-4">
+      <main>
+        <div class="py-5 text-center">
+          <h2 class="text-white">Cadastro de Usuário</h2>
+          <p class="lead text-white">Por favor, preencha todos os campos.</p>
+        </div>
+
+        <div class="py-1">
+          <div class="col">
+            <form class="needs-validation" action="/users/create" method="POST" novalidate>
+              <div class="row g-3">
+
+                <div class="col-12">
+                  <label class="form-label text-white">Nome completo</label>
+                  <input class="form-control" name="name" type="name" placeholder="Seu nome completo" required>
+                  <div class="invalid-feedback">
+                    Insira um nome válido.
+                  </div>
+                </div>
+
+                <div class="col-12">
+                  <label class="form-label text-white">E-mail</label>
+                  <div class="input-group has-validation">
+                    <span class="input-group-text">@</span>
+                    <input class="form-control" name="email" type="email" placeholder="email@email.com" required>
+                    <div class="invalid-feedback">
+                      Insira um e-mail válido.
+                    </div>
+                  </div>
+                </div>
+
+                <div class="col-12">
+                  <label class="form-label text-white">Senha</label>
+                  <div class="input-group has-validation">
+                    <span class="input-group-text">#</span>
+                    <input  class="form-control" name="password" type="password" placeholder="**********" required>
+                    <div class="invalid-feedback">
+                      Insira uma senha.
+                    </div>
+                  </div>
+                </div>
+
+                <div class="col-12">
+                  <label class="form-label text-white">Endereço</label>
+                  <input class="form-control" name="address" type="address" placeholder="Rua João Afonseca, Nº 201" required>
+                  <div class="invalid-feedback">
+                    Por favor insira o endereço.
+                  </div>
+                </div>
+
+                <div class="col-12">
+                  <label class="form-label text-white">Complemento <span class="text-muted">(Opcional)</span></label>
+                  <input  class="form-control" name="address2" type="text" placeholder="Apartamento ou Bloco">
+                </div>
+
+                <div class="col-md-5">
+                  <label class="form-label text-white">País</label>
+                  <select class="form-select" name="country" required>
+                    <option value="">Selecione...</option>
+                    <option>Brasil</option>
+                  </select>
+                  <div class="invalid-feedback">
+                    Selecione um país válido.
+                  </div>
+                </div>
+
+                <div class="col-md-4">
+                  <label class="form-label text-white">Estado</label>
+                  <select class="form-select" name="state" required>
+                    <option value="">Selecione...</option>
+                    <option>Santa Catarina</option>
+                  </select>
+                  <div class="invalid-feedback">
+                    Selecione um estado válido.
+                  </div>
+                </div>
+
+                <div class="col-md-3">
+                  <label class="form-label text-white">CEP</label>
+                  <input class="form-control" name="zip" type="text" placeholder="12345678" required>
+                  <div class="invalid-feedback">
+                    CEP inválido.
+                  </div>
+                </div>
+
+              </div>
+
+              <hr class="my-4">
+
+              <button class="w-100 btn btn-success btn-lg text-white" type="submit">Salvar</button>
+          
+            </form>
+          </div>
+        </div>
+      </main>
+
+      <footer class="text-center py-4 text-white-50">
+        <p>Desenvolvido por <a href="https://github.com/Lucasgb7/" class="text-white">Lucasgb7</a></p>
+      </footer>
+    </div>
+    <script src="/js/bootstrap.bundle.min.js"></script>
+    <script src="/js/form-validation.js"></script>
+  </body>
+</html>
