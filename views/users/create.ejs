@@ -49,10 +49,6 @@
                 <a class="nav-link" href="/logout">Logout</a>
               </li>
             </ul>
-            <form class="d-flex">
-              <input class="form-control me-2" type="search" placeholder="Pesquisar" aria-label="Search">
-              <button class="btn btn-outline-info" type="submit">Pesquisar</button>
-            </form>
           </div>
         </div>
       </nav>
@@ -68,84 +64,143 @@
 
         <div class="py-1">
           <div class="col">
-            <form class="needs-validation" action="/users/create" method="POST" novalidate>
-              <div class="row g-3">
+            <% if (user == undefined) { %>
+              <form class="needs-validation" action="/users/create" method="POST" novalidate>
+                <div class="row g-3">
 
-                <div class="col-12">
-                  <label class="form-label text-white">Nome completo</label>
-                  <input class="form-control" name="name" type="name" placeholder="Seu nome completo" required>
-                  <div class="invalid-feedback">
-                    Insira um nome válido.
-                  </div>
-                </div>
-
-                <div class="col-12">
-                  <label class="form-label text-white">E-mail</label>
-                  <div class="input-group has-validation">
-                    <span class="input-group-text">@</span>
-                    <input class="form-control" name="email" type="email" placeholder="email@email.com" required>
+                  <div class="col-12">
+                    <label class="form-label text-white">Nome completo</label>
+                    <input class="form-control" name="name" type="name" placeholder="Seu nome completo" required>
                     <div class="invalid-feedback">
-                      Insira um e-mail válido.
+                      Insira um nome válido.
                     </div>
                   </div>
-                </div>
 
-                <div class="col-12">
-                  <label class="form-label text-white">Senha</label>
-                  <div class="input-group has-validation">
-                    <span class="input-group-text">#</span>
-                    <input  class="form-control" name="password" type="password" placeholder="**********" required>
-                    <div class="invalid-feedback">
-                      Insira uma senha.
+                  <div class="col-12">
+                    <label class="form-label text-white">E-mail</label>
+                    <div class="input-group has-validation">
+                      <span class="input-group-text">@</span>
+                      <input class="form-control" name="email" type="email" placeholder="email@email.com" required>
+                      <div class="invalid-feedback">
+                        Insira um e-mail válido.
+                      </div>
                     </div>
                   </div>
-                </div>
 
-                <div class="col-12">
-                  <label class="form-label text-white">Endereço</label>
-                  <input class="form-control" name="address" type="address" placeholder="Rua João Afonseca, Nº 201" required>
-                  <div class="invalid-feedback">
-                    Por favor insira o endereço.
+                  <div class="col-12">
+                    <label class="form-label text-white">Senha</label>
+                    <div class="input-group has-validation">
+                      <span class="input-group-text">#</span>
+                      <input  class="form-control" name="password" type="password" placeholder="**********" required>
+                      <div class="invalid-feedback">
+                        Insira uma senha.
+                      </div>
+                    </div>
                   </div>
-                </div>
 
-                <div class="col-12">
-                  <label class="form-label text-white">Complemento <span class="text-muted">(Opcional)</span></label>
-                  <input  class="form-control" name="address2" type="text" placeholder="Apartamento ou Bloco">
-                </div>
-
-                <div class="col-md-5">
-                  <label class="form-label text-white">País</label>
-                  <select class="form-select" name="country" required>
-                    <option value="">Selecione...</option>
-                    <option>Brasil</option>
-                  </select>
-                  <div class="invalid-feedback">
-                    Selecione um país válido.
+                  <div class="col-12">
+                    <label class="form-label text-white">Endereço</label>
+                    <input class="form-control" name="address" type="address" placeholder="Rua João Afonseca, Nº 201" required>
+                    <div class="invalid-feedback">
+                      Por favor insira o endereço.
+                    </div>
                   </div>
-                </div>
 
-                <div class="col-md-4">
-                  <label class="form-label text-white">Estado</label>
-                  <select class="form-select" name="state" required>
-                    <option value="">Selecione...</option>
-                    <option>Santa Catarina</option>
-                  </select>
-                  <div class="invalid-feedback">
-                    Selecione um estado válido.
+                  <div class="col-12">
+                    <label class="form-label text-white">Complemento <span class="text-muted">(Opcional)</span></label>
+                    <input  class="form-control" name="address2" type="text" placeholder="Apartamento ou Bloco">
                   </div>
-                </div>
 
-                <div class="col-md-3">
-                  <label class="form-label text-white">CEP</label>
-                  <input class="form-control" name="zip" type="text" placeholder="12345678" required>
-                  <div class="invalid-feedback">
-                    CEP inválido.
+                  <div class="col-md-5">
+                    <label class="form-label text-white">País</label>
+                    <select class="form-select" name="country" required>
+                      <option value="">Selecione...</option>
+                      <option>Brasil</option>
+                    </select>
+                    <div class="invalid-feedback">
+                      Selecione um país válido.
+                    </div>
                   </div>
+
+                  <div class="col-md-4">
+                    <label class="form-label text-white">Estado</label>
+                    <select class="form-select" name="state" required>
+                      <option value="">Selecione...</option>
+                      <option>Santa Catarina</option>
+                    </select>
+                    <div class="invalid-feedback">
+                      Selecione um estado válido.
+                    </div>
+                  </div>
+
+                  <div class="col-md-3">
+                    <label class="form-label text-white">CEP</label>
+                    <input class="form-control" name="zip" type="text" placeholder="12345678" required>
+                    <div class="invalid-feedback">
+                      CEP inválido.
+                    </div>
+                  </div>
+
                 </div>
-
-              </div>
-
+              <%} else { %>
+                <form class="needs-validation" action="/users/update" method="POST">
+                  <div class="row g-3">
+  
+                    <div class="col-12">
+                      <label class="form-label text-white">Nome completo</label>
+                      <input class="form-control" name="name" type="text" value="<%=user.name%>">
+                    </div>
+  
+                    <div class="col-12">
+                      <label class="form-label text-white">E-mail</label>
+                      <div class="input-group">
+                        <span class="input-group-text">@</span>
+                        <input disabled class="form-control" name="email" type="email" value="<%=user.email%>">
+                      </div>
+                    </div>
+  
+                    <div class="col-12">
+                      <label class="form-label text-white">Senha</label>
+                      <div class="input-group">
+                        <span class="input-group-text">#</span>
+                        <input class="form-control" name="password" type="password" placeholder="**********">
+                      </div>
+                    </div>
+  
+                    <div class="col-12">
+                      <label class="form-label text-white">Endereço</label>
+                      <input class="form-control" name="address" type="text" value="<%=user.address%>">
+                    </div>
+  
+                    <div class="col-12">
+                      <label class="form-label text-white">Complemento <span class="text-muted">(Opcional)</span></label>
+                      <input  class="form-control" name="address2" type="text" value="<%=user.address2%>">
+                    </div>
+  
+                    <div class="col-md-5">
+                      <label class="form-label text-white">País</label>
+                      <select class="form-select" name="country" value="<%=user.country%>">
+                        <option>Selecione...</option>
+                        <option>Brasil</option>
+                      </select>
+                    </div>
+  
+                    <div class="col-md-4">
+                      <label class="form-label text-white">Estado</label>
+                      <select class="form-select" name="state" value="<%=user.state%>">
+                        <option>Selecione...</option>
+                        <option>Santa Catarina</option>
+                      </select>
+                    </div>
+  
+                    <div class="col-md-3">
+                      <label class="form-label text-white">CEP</label>
+                      <input class="form-control" name="zip" type="text" value="<%=user.zip%>">
+                    </div>
+                    
+                    <input type="hidden" name="id" value="<%= user.id %>">
+                  </div>
+                <% }; %>
               <hr class="my-4">
 
               <button class="w-100 btn btn-success btn-lg text-white" type="submit">Salvar</button>
@@ -159,6 +214,11 @@
         <p>Desenvolvido por <a href="https://github.com/Lucasgb7/" class="text-white">Lucasgb7</a></p>
       </footer>
     </div>
+
+    <script>
+      document.getElementsByName
+    </script>
+
     <script src="/js/bootstrap.bundle.min.js"></script>
     <script src="/js/form-validation.js"></script>
   </body>
