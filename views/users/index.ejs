@@ -49,10 +49,6 @@
             <a class="nav-link" href="/logout">Logout</a>
           </li>
         </ul>
-        <form class="d-flex">
-          <input class="form-control me-2" type="search" placeholder="Pesquisar" aria-label="Search">
-          <button class="btn btn-outline-info" type="submit">Pesquisar</button>
-        </form>
       </div>
     </div>
   </nav>
@@ -80,7 +76,7 @@
                         <td><%= user.name %></td>
                         <td><%= user.email %></td>
                         <td>
-                          <a class="btn btn-warning" href="/users/edit/<%= user.id %>">Editar</a>
+                          <a class="btn btn-warning" href="/users/edit/<%=user.id%>">Editar</a>
                           <form action="/users/delete/<%=user.id%>" method="post" style="display: inline;" onsubmit="confirmDelete(event, this)">
                             <button class="btn btn-danger">Deletar</button>
                           </form>
