@@ -14,7 +14,7 @@ router.get("/users", (req, res) => {
 
 // Direcionamento para criacao de usuarios
 router.get("/users/create", (req, res) => {
-    res.render("users/create");
+    res.render("users/create", {user: undefined});
 });
 
 // Criacao de usuarios (usuario fornece informacoes)
@@ -26,7 +26,7 @@ router.post("/users/create", (req, res) => {
     var address2 = req.body.address2;
     var country = req.body.country;
     var state = req.body.state;
-    
+    var zip = req.body.zip;
     
     User.findOne({where:{email: email}}).then( user => { 
         if(user == undefined){ // Verifica se o email nao foi usado
@@ -41,7 +41,8 @@ router.post("/users/create", (req, res) => {
                 address: address,
                 address2: address2,
                 country: country,
-                state: state
+                state: state,
+                zip: zip
             }).then(() => {
                 res.redirect("/users");
             }).catch((err) => {
@@ -58,7 +59,6 @@ router.post("/users/create", (req, res) => {
 // Deletar um usuario ja cadastrado
 router.post("/users/delete/:id", (req, res) => {
     var id = req.params.id;
-    console.log(id);
     if(id != undefined){ 
         if(!isNaN(id)){ // Verifica se o usuario existe
             User.destroy({
@@ -80,9 +80,11 @@ router.get("/users/edit/:id" , (req, res) => {
     var id = req.params.id;
     User.findByPk(id).then(user => {
         if(user != undefined){
+            res.render("users/create", {user: user});
+            /*
             User.findAll().then(user => {
-                res.render("users/edit", {user: user})
-            });
+                res.render("users/create", {user: user})
+            });*/
         }else{
             res.redirect("/users");
         }
@@ -92,11 +94,25 @@ router.get("/users/edit/:id" , (req, res) => {
 });
 
 router.post("/users/update", (req, res) => {
-    var id = req.user.id;
-    var email = req.user.email;
-    var password = req.user.password;
+    var id = req.body.id;
+    var email = req.body.email;
+    var password = req.body.password;
+    var name = req.body.name;
+    var address = req.body.address;
+    var address2 = req.body.address2;
+    var country = req.body.country;
+    var state = req.body.state;
+    var zip = req.body.zip;
 
-    User.update({email: email, password: password},{
+    User.update(
+        {email: email, 
+        password: password,
+        name: name,
+        address: address,
+        address2: address2,
+        country: country,
+        state: state,
+        zip: zip},{
         where: {
             id: id
         }
