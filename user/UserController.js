@@ -6,7 +6,7 @@ const bcrypt = require('bcryptjs');
 const auth = require('../middleware/auth')
 
 // Lista de usuarios
-router.get("/users", (req, res) => {
+router.get("/users", auth, (req, res) => {
     User.findAll().then(users => {
         res.render("users/index", {users: users});
     });
@@ -57,7 +57,7 @@ router.post("/users/create", (req, res) => {
 });
 
 // Deletar um usuario ja cadastrado
-router.post("/users/delete/:id", (req, res) => {
+router.post("/users/delete/:id", auth, (req, res) => {
     var id = req.params.id;
     if(id != undefined){ 
         if(!isNaN(id)){ // Verifica se o usuario existe
@@ -76,7 +76,7 @@ router.post("/users/delete/:id", (req, res) => {
     }
 });
 
-router.get("/users/edit/:id" , (req, res) => {
+router.get("/users/edit/:id", auth, (req, res) => {
     var id = req.params.id;
     User.findByPk(id).then(user => {
         if(user != undefined){
@@ -93,7 +93,7 @@ router.get("/users/edit/:id" , (req, res) => {
     });
 });
 
-router.post("/users/update", (req, res) => {
+router.post("/users/update", auth, (req, res) => {
     var id = req.body.id;
     var email = req.body.email;
     var password = req.body.password;
